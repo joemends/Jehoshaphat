@@ -345,7 +345,7 @@ img{
 .track{
     display: inline-block;
   white-space: nowrap;
-  animation: scroll 35s linear infinite;
+  animation: scroll 20s linear infinite;
   gap: 10px;
 }
 
