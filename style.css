@@ -109,7 +109,7 @@ body{
     justify-content: center;
     align-items: center;
     margin: 20px 0 0 0;
-    background: linear-gradient(#171717b6,#171717), url(../../assets/background.png);
+    background: linear-gradient(#171717b6,#171717), url(assets/background.png);
 }
 h1{
     font-size: 110px;
