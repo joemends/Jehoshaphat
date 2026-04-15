@@ -35,3 +35,11 @@ works.forEach((work) => {
   const clone = work.cloneNode(true);
   trackWorks.appendChild(clone);
 });
+
+sliderWorks.addEventListener("mouseover", ()=>{
+    trackWorks.style.animationPlayState = "paused"
+})
+
+sliderWorks.addEventListener("mouseout", () =>{
+  trackWorks.style.animationPlayState ="running"
+})

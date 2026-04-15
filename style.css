@@ -49,6 +49,18 @@ body{
     padding-left: 10%;
     overflow: hidden;
 }
+
+/* button{
+    background: none;
+    border: 1px solid var(--primary-100);
+    color: var(--primary-100);
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    align-items: center;
+} */
 .desktop-nav{
     width: 100%;
     display: flex;
@@ -123,6 +135,7 @@ h1{
     color: var(--primary-100);
     border: 1px solid var(--primary-100);
     border-radius: 50px;
+    cursor: pointer;
 }
 .get-in-touch:hover, .veiw-more:hover{
     background: var(--primary-100);
@@ -345,7 +358,7 @@ img{
 .track{
     display: inline-block;
   white-space: nowrap;
-  animation: scroll 20s linear infinite;
+  animation: scroll 35s linear infinite;
   gap: 10px;
 }
 
@@ -478,6 +491,14 @@ img{
       'item-3';
   }
 
+  .logo-track img {
+    margin: 0 1rem;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+    opacity: 50%;
+    width: 150px;
+  }
+
   .project-container{
     width: 300px;
     height: auto;
@@ -491,6 +512,25 @@ img{
     left: -50px;
     top: 0;
   }
+
+  .mask-left{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100px;
+    background: linear-gradient(to right, #171717,#171717c6,transparent) ;
+    z-index: 5;
+}
+.mask-right{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100px;
+    background: linear-gradient(to left, #171717,#171717c6,transparent 100%) ;
+    z-index: 5;
+}
 
   .title .name{
     text-align: left;
@@ -577,11 +617,9 @@ img{
   .contact h2{
     font-size: 40px;
   }
-
   .contact button{
     left: 0;
   }
-
   /* Footer */
   .footer{
     flex-direction: row;
@@ -595,6 +633,4 @@ img{
   .social-media-link img{
     width: 20px;
   }
-
- 
 }
