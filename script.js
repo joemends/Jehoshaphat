@@ -1,22 +1,6 @@
-const slider = document.querySelector(".logo-slider");
-const track = document.querySelector(".logo-track");
-const logos = Array.from(track.children);
-
-logos.forEach((logo) => {
-  const clone = logo.cloneNode(true);
-  track.appendChild(clone);
-});
-
-slider.addEventListener("mouseover", () => {
-  track.style.animationPlayState = "paused";
-});
-
-slider.addEventListener("mouseout", () => {
-  track.style.animationPlayState = "running";
-});
 
 let openMenu = document.querySelector(".menu");
-let closeMenu = document.querySelector(".close")
+let closeMenu = document.querySelector(".close");
 
 openMenu.addEventListener("click", () => {
     document.querySelector(".mobile-nav-list").style.display = "block";
@@ -43,3 +27,24 @@ sliderWorks.addEventListener("mouseover", ()=>{
 sliderWorks.addEventListener("mouseout", () =>{
   trackWorks.style.animationPlayState ="running"
 })
+
+
+// About
+// if (window.location.pathname === "home/index.html") {
+  const slider = document.querySelector(".logo-slider");
+  const track = document.querySelector(".logo-track");
+  const logos = Array.from(track.children);
+
+  logos.forEach((logo) => {
+    const clone = logo.cloneNode(true);
+    track.appendChild(clone);
+  });
+
+  slider.addEventListener("mouseover", () => {
+    track.style.animationPlayState = "paused";
+  });
+
+  slider.addEventListener("mouseout", () => {
+  track.style.animationPlayState = "running";
+});
+

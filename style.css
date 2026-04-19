@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italianno&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 
 :root{
     /* Primary: Pot Black */
@@ -360,6 +360,7 @@ img{
   white-space: nowrap;
   animation: scroll 35s linear infinite;
   gap: 10px;
+  padding: 0 10px;
 }
 
 .works-slider{
@@ -400,7 +401,6 @@ img{
     text-decoration: none;
     color: var(--primary-100);
 }
-
 @media (max-width: 768px){
 
   .container{
