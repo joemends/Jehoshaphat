@@ -1,4 +1,4 @@
-
+//Nav Menu
 let openMenu = document.querySelector(".menu");
 let closeMenu = document.querySelector(".close");
 
@@ -12,6 +12,8 @@ closeMenu.addEventListener("click", () => {
     openMenu.style.display = "inline-block";
 });
 
+
+//Image Slider
 const sliderWorks = document.querySelector(".works-slider");
 const trackWorks = document.querySelector(".track");
 const works = Array.from(trackWorks.children);
@@ -29,8 +31,7 @@ sliderWorks.addEventListener("mouseout", () =>{
 })
 
 
-// About
-// if (window.location.pathname === "home/index.html") {
+//Image Slider in About page
   const slider = document.querySelector(".logo-slider");
   const track = document.querySelector(".logo-track");
   const logos = Array.from(track.children);
