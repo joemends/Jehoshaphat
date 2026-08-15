@@ -6,8 +6,8 @@
    4. Animation speed is controlled here. Smaller number = faster.
    ========================================================= */
 const SITE_CONFIG = {
-  supabaseUrl: 'https://bdhxswgkwelkvvwgqywu.supabase.co',
-  supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJkaHhzd2drd2Vsa3Z2d2dxeXd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY3NDYzNDksImV4cCI6MjEwMjMyMjM0OX0.O54DqOStDNFR1gW4uNqiojFbWJibp3MGVa3ZT1YpnYg',
+  supabaseUrl: 'https://qplqqjajvihizsexcbru.supabase.co',
+  supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwbHFxamFqdmloaXpzZXhjYnJ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY4MDAwNzAsImV4cCI6MjEwMjM3NjA3MH0.7EtUkt1SMegYA2QKR4wd2OSXKT1B5DtB15Mj8E5gMGg',
   animations: {
     revealDuration: 700,
     revealDistance: 24,
