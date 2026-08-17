@@ -82,26 +82,16 @@ insert into public.site_settings(key,value) values
 ('site', '{"site_name":"JEHOSHAPHAT MENDS","hero_title":"JEHOSHAPHAT MENDS","hero_subtitle":"Brand & Graphic Designer","about_text":"I’m a designer with experience creating impactful visuals across brand design, graphic design, UX/UI design and website development.","about_image":"assets/About.jpg","hero_image":"assets/background.png","email":"hello@example.com","phone":"+233 00 000 0000","location":"Accra, Ghana","instagram":"https://instagram.com","facebook":"https://facebook.com"}'::jsonb)
 on conflict (key) do nothing;
 
+-- ============================================================
+-- MAKE YOUR ADMIN ACCOUNT
+-- 1. Create the admin account in Supabase > Authentication > Users.
+-- 2. Copy that user's email.
+-- 3. Replace YOUR-ADMIN-EMAIL below with that exact email and run it.
+-- ============================================================
+-- insert into public.admin_users(user_id)
+-- select id from auth.users where lower(email) = lower('YOUR-ADMIN-EMAIL')
+-- on conflict (user_id) do nothing;
 
--- Starter content using the images already included in the GitHub repository.
-insert into public.projects(title,category,description,image_url,project_url,sort_order) values
-('Libdom Logistics','Logo Design','Starter project from the original portfolio.','assets/Libdom.jpeg','',1),
-('Winney','Logo Design','Starter project from the original portfolio.','assets/Winney.jpg','',2),
-('SUWMA','Brand Design','Starter project from the original portfolio.','assets/Anniversary.jpg','',3)
-on conflict do nothing;
+-- Or use the user's UUID directly:
+-- insert into public.admin_users(user_id) values ('YOUR-AUTH-USER-UUID') on conflict do nothing;
 
-insert into public.artboards(title,image_url,sort_order) values
-('Anni','assets/Anni.jpg',1),
-('Libdom','assets/Libdom.jpeg',2),
-('Nhyira Salon','assets/Nhyira Salon.jpg',3),
-('Labour Day','assets/Labour Day 4x4.png',4),
-('Seli Frozen Food','assets/Seli frozen food.jpg',5),
-('Winney','assets/Winney.jpg',6),
-('Ford Collection','assets/Ford collection.jpeg',7),
-('Independence','assets/indepenArtboard 2.jpg',8),
-('Batter Bliss','assets/Batter Bliss.jpg',9),
-('Right Guard','assets/Right Guard.jpg',10)
-on conflict do nothing;
-
--- AFTER creating your Supabase Auth user, replace the UUID below and run:
--- insert into public.admin_users(user_id) values ('YOUR-AUTH-USER-UUID');

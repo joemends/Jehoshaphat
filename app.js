@@ -24,14 +24,13 @@ async function renderPublicSite() {
   const map = {site_name:'JEHOSHAPHAT MENDS', hero_title:'JEHOSHAPHAT MENDS', hero_subtitle:'Brand & Graphic Designer', about_text:'I’m a designer with experience creating impactful visuals across brand design, graphic design, UX/UI design and website development.', about_image:'assets/About.jpg', hero_image:'assets/background.png'};
   const merged = {...map, ...(settings.site || {})};
   document.querySelectorAll('[data-setting]').forEach(el => { const key=el.dataset.setting; if (merged[key] !== undefined) { if(el.tagName==='IMG') el.src=assetPath(merged[key]); else el.textContent=merged[key]; } });
-  if (merged.hero_image) { const hero=document.querySelector('.hero'); if(hero) hero.style.backgroundImage=`linear-gradient(rgba(23,23,23,.45),rgba(23,23,23,.96)),url("${assetPath(merged.hero_image)}")`; }
   const projects = await getProjects();
   document.querySelectorAll('[data-projects]').forEach(target => {
     if (!projects.length) return;
-    target.innerHTML = projects.slice(0, target.dataset.limit ? Number(target.dataset.limit) : 99).map(p => `<article class="card reveal show"><img class="card-img" src="${esc(p.image_url)}" alt="${esc(p.title)}"><div class="card-body"><span class="tag">${esc(p.category || 'Project')}</span><h3>${esc(p.title)}</h3><p class="muted">${esc(p.description || '')}</p>${p.project_url?`<a class="btn" style="margin-top:14px" href="${esc(p.project_url)}" target="_blank" rel="noreferrer">View project</a>`:''}</div></article>`).join('');
+    target.innerHTML = projects.slice(0, target.dataset.limit ? Number(target.dataset.limit) : 99).map(p => `<a class="card reveal show work-card-link" href="work.html?type=project&id=${encodeURIComponent(p.id)}"><img class="card-img" src="${esc(p.image_url)}" alt="${esc(p.title)}"><div class="card-body"><span class="tag">${esc(p.category || 'Project')}</span><h3>${esc(p.title)}</h3><p class="muted">${esc(p.description || '')}</p><span class="btn" style="margin-top:14px">View details</span></div></a>`).join('');
   });
   const arts = await getArtboards();
-  document.querySelectorAll('[data-artboards]').forEach(target => { if(!arts.length) return; target.innerHTML = arts.map(a=>`<img src="${esc(a.image_url)}" alt="${esc(a.title||'Artboard')}">`).join(''); });
+  document.querySelectorAll('[data-artboards]').forEach(target => { if(!arts.length) return; target.innerHTML = arts.map(a=>`<a class="artboard-link" href="work.html?type=artboard&id=${encodeURIComponent(a.id)}"><img src="${esc(a.image_url)}" alt="${esc(a.title||'Artboard')}"></a>`).join(''); });
 }
 
 document.addEventListener('DOMContentLoaded', renderPublicSite);

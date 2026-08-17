@@ -6,8 +6,8 @@
    4. Animation speed is controlled here. Smaller number = faster.
    ========================================================= */
 const SITE_CONFIG = {
-  supabaseUrl: 'https://qplqqjajvihizsexcbru.supabase.co',
-  supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwbHFxamFqdmloaXpzZXhjYnJ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY4MDAwNzAsImV4cCI6MjEwMjM3NjA3MH0.7EtUkt1SMegYA2QKR4wd2OSXKT1B5DtB15Mj8E5gMGg',
+  supabaseUrl: 'YOUR_SUPABASE_URL',
+  supabaseKey: 'YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY',
   animations: {
     revealDuration: 700,
     revealDistance: 24,
