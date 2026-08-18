@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', ready);
 
 function esc(value='') { return String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[c])); }
 function assetPath(path) { return path || 'assets/background.png'; }
+function safePublicImage(path) { return path || 'assets/background.png'; }
+function dbImage(row) { return row?.image_path ? supabaseClient.storage.from('portfolio').getPublicUrl(row.image_path).data.publicUrl : safePublicImage(row?.image_url); }
 
 async function renderPublicSite() {
   if (SITE_CONFIG.supabaseUrl.startsWith('YOUR_')) return;
@@ -27,10 +29,10 @@ async function renderPublicSite() {
   const projects = await getProjects();
   document.querySelectorAll('[data-projects]').forEach(target => {
     if (!projects.length) return;
-    target.innerHTML = projects.slice(0, target.dataset.limit ? Number(target.dataset.limit) : 99).map(p => `<a class="card reveal show work-card-link" href="work.html?type=project&id=${encodeURIComponent(p.id)}"><img class="card-img" src="${esc(p.image_url)}" alt="${esc(p.title)}"><div class="card-body"><span class="tag">${esc(p.category || 'Project')}</span><h3>${esc(p.title)}</h3><p class="muted">${esc(p.description || '')}</p><span class="btn" style="margin-top:14px">View details</span></div></a>`).join('');
+    target.innerHTML = projects.slice(0, target.dataset.limit ? Number(target.dataset.limit) : 99).map(p => `<a class="card reveal show work-card-link" href="work.html?type=project&id=${encodeURIComponent(p.id)}"><img class="card-img" src="${esc(dbImage(p))}" onerror="this.onerror=null;this.src='assets/background.png'" alt="${esc(p.title)}"><div class="card-body"><span class="tag">${esc(p.category || 'Project')}</span><h3>${esc(p.title)}</h3><p class="muted">${esc(p.description || '')}</p><span class="btn" style="margin-top:14px">View details</span></div></a>`).join('');
   });
   const arts = await getArtboards();
-  document.querySelectorAll('[data-artboards]').forEach(target => { if(!arts.length) return; target.innerHTML = arts.map(a=>`<a class="artboard-link" href="work.html?type=artboard&id=${encodeURIComponent(a.id)}"><img src="${esc(a.image_url)}" alt="${esc(a.title||'Artboard')}"></a>`).join(''); });
+  document.querySelectorAll('[data-artboards]').forEach(target => { if(!arts.length) return; target.innerHTML = arts.map(a=>`<a class="artboard-link" href="work.html?type=artboard&id=${encodeURIComponent(a.id)}"><img src="${esc(dbImage(a))}" onerror="this.onerror=null;this.src='assets/background.png'" alt="${esc(a.title||'Artboard')}"></a>`).join(''); });
 }
 
 document.addEventListener('DOMContentLoaded', renderPublicSite);
