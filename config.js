@@ -6,7 +6,7 @@
    4. Animation speed is controlled here. Smaller number = faster.
    ========================================================= */
 const SITE_CONFIG = {
-  supabaseUrl: 'YOUR_SUPABASE_URL',
+  supabaseUrl: 'https://qplqqjajvihizsexcbru.supabase.co/rest/v1/',
   supabaseKey: 'YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY',
   animations: {
     revealDuration: 700,
